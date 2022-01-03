@@ -1,5 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// Configurar Logger personalizado
+builder.Logging.ClearProviders(); // remover loggers padrão
+builder.Logging.AddProvider(new mvc_test.Loggers.MyLoggerProvider());
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

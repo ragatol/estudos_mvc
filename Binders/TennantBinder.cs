@@ -18,6 +18,7 @@ public class TennantBinder : IModelBinder
 
         if (valueProviderResult == ValueProviderResult.None)
         {
+            bindingContext.Result = ModelBindingResult.Failed();
             return Task.CompletedTask;
         }
 

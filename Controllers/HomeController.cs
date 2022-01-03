@@ -13,10 +13,12 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    [HttpPost]
 	[Route("")]
     public IActionResult Index(string tenantId, string message)
     {
-        return Content("HOME");
+        _logger.LogInformation(0,null,"Executando post vindo de {}", tenantId);
+        return Content("Index recebeu como id: " + tenantId + "\nMensagem: " + message);
     }
 
     [Route("{tennant}/{message}")]
