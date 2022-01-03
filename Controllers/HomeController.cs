@@ -14,7 +14,7 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-	[Route("")]
+    [Route("")]
     public IActionResult Index(string tenantId, string message)
     {
         _logger.LogInformation(0,null,"Executando post vindo de {}", tenantId);
