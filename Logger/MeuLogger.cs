@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 public class MyLogger: ILogger
 {
 
+	// Podemos guardar configurações específicas desse logger...
     private string _dbName;
 
     public MyLogger(string dbName)
@@ -29,10 +30,14 @@ public class MyLogger: ILogger
 
 public sealed class MyLoggerProvider : ILoggerProvider
 {
+
+	// Criar Logger com "capeta" como _dbName
+	// claro, podemos usar do sistema de configuration para
+	// criar um provider que constrói o nosso logger com
+	// parâmetros espefícios da aplicação...
     public ILogger CreateLogger(string categoryName) =>
             new MyLogger("capeta");
 
-    
     public void Dispose()
     {
     }
