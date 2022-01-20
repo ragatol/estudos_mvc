@@ -17,22 +17,29 @@ public class HomeController : Controller
     [Route("")]
     public IActionResult Index(string tenantId, string message)
     {
+		// Usando o Logger para registrar um texto com formatação.
         _logger.LogInformation(0,null,"Executando post vindo de {}", tenantId);
         return Content("Index recebeu como id: " + tenantId + "\nMensagem: " + message);
     }
 
+	// Rota para GET
     [Route("{tennant}/{message}")]
     public IActionResult Log(Tennant tennant, string message)
     {
         return Content("Tenant " + tennant.ID + " said: " + message);
     }
 
+	// Rota para POST da mensagem, com o id do tennant na url
     [HttpPost]
     [Route("{tennant}")]
     public IActionResult PostLog(Tennant tennant, string message)
     {
         return Log(tennant,message);
     }
+
+	//
+	// Vestígios do template gerado pelo dotnet new:
+	//
 
     public IActionResult Privacy()
     {
